@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "@helper/utils",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "Viktor Pyatakov <pyatakov.viktor@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start:dev": "tsc --watch",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+  }
+}
