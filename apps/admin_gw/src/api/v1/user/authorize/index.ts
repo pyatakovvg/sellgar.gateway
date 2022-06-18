@@ -11,11 +11,8 @@ interface IBody {
 
 @Route('post', '/api/v1/users/current/authorize')
 class AuthorizeUserController extends Controller {
-  private body: any;
-  private cookie: any;
-
   async send(): Promise<any> {
-    const { login, password }: IBody = this.body;
+    const { login, password }: IBody = super.body;
 
     const result = await request({
       method: 'POST',
@@ -27,7 +24,7 @@ class AuthorizeUserController extends Controller {
     });
 
     console.log(result['data'])
-    this.cookie.set(process.env['COOKIE_NAME'], JSON.stringify(result['data']));
+    super.cookie.set(process.env['COOKIE_NAME'], JSON.stringify(result['data']));
 
     return new Result()
       .data(null)
