@@ -17,9 +17,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc",
-    "start:dev": "tsc --watch",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "cross-env NODE_ENV=production tsc",
+    "start:dev": "cross-env NODE_ENV=development tsc --watch"
   },
   "dependencies": {
   },
