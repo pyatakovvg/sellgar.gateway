@@ -6,7 +6,7 @@
   "author": "Viktor Pyatakov <pyatakov.viktor@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
-  "types": "lib",
+  "types": "types",
   "directories": {
     "lib": "lib"
   },
