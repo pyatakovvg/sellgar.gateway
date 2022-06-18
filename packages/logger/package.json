@@ -8,15 +8,6 @@
   "license": "ISC",
   "main": "lib/index.js",
   "types": "types",
-  "directories": {
-    "lib": "lib"
-  },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "cross-env NODE_ENV=production tsc",
     "start:dev": "cross-env NODE_ENV=development tsc --watch"
