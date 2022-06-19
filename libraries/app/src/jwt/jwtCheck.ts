@@ -24,7 +24,7 @@ function middleware(options: IOptions) {
 
     if ( ! cookie) {
       logger.debug('JwtCheck: Авторизационная cookie не найдена');
-      throw new UnauthorizedError({ code: '60.1.216', message: 'Пользователь неавторизован' });
+      throw new UnauthorizedError({ code: '60.1.215', message: 'Пользователь неавторизован' });
     }
 
     logger.info('JwtCheck: Checking token');
