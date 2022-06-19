@@ -14,8 +14,6 @@ class AuthorizeUserController extends Controller {
   async send(): Promise<any> {
     const { login, password }: IBody = super.body;
 
-    console.log(login, password, process.env['IDENTITY_API_SRV'])
-
     const result = await request({
       method: 'POST',
       url: process.env['IDENTITY_API_SRV'] + '/auth/token',
