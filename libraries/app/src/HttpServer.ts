@@ -27,7 +27,7 @@ class HttpServer {
 
     this.koa.use(logger());
     this.koa.use(cors({
-      allowedOrigins: ['http://localhost:3020'],
+      allowedOrigins: this.config['origin'].trim().replace(/\s+/, '').split(','),
       credentials: true,
     }));
 
