@@ -23,7 +23,6 @@ class AuthorizeUserController extends Controller {
       }
     });
 
-    console.log(result['data'])
     super.cookie.set(process.env['COOKIE_NAME'], JSON.stringify(result['data']));
 
     return new Result()
