@@ -9,6 +9,7 @@ import protectedRoutes from './config/routes/protected';
   try {
     const app = new Application(new Config({
       port: Number(process.env['PORT']),
+      origin: process.env['ORIGIN'],
     }));
 
 
