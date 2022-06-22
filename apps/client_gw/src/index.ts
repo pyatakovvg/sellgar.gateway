@@ -12,7 +12,8 @@ import protectedRoutes from './config/routes/protected';
       origin: process.env['ORIGIN'],
     }));
 
-    console.log(process.env)
+    console.log(123)
+    console.log(123, process.env)
 
     app.addRouter(new Router(publicRoutes));
     app.addRouter(new JwtProxy(new Router(protectedRoutes), {
