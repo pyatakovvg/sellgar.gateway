@@ -39,6 +39,7 @@ class Router {
       if (route) {
         const controller: any = new route(app);
 
+        logger.debug(`[${controller['method']}] ${controller['path']}`);
         this.router[controller['method']](controller['path'], async (ctx: Context, next: Next) => {
 
           controller.init(ctx);
