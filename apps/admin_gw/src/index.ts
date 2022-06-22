@@ -12,15 +12,12 @@ import protectedRoutes from './config/routes/protected';
       origin: process.env['ORIGIN'],
     }));
 
-    console.log(123)
-    console.log(123, process.env)
-
     app.addRouter(new Router(publicRoutes));
-    app.addRouter(new JwtProxy(new Router(protectedRoutes), {
-      cookieName: process.env['COOKIE_NAME'],
-      uriCheck: process.env['IDENTITY_API_SRV'] + '/.well-known',
-      uriRefresh: process.env['IDENTITY_API_SRV'] + '/token/refresh',
-    }));
+    // app.addRouter(new JwtProxy(new Router(protectedRoutes), {
+    //   cookieName: process.env['COOKIE_NAME'],
+    //   uriCheck: process.env['IDENTITY_API_SRV'] + '/.well-known',
+    //   uriRefresh: process.env['IDENTITY_API_SRV'] + '/token/refresh',
+    // }));
 
     await app.start();
   }
