@@ -8,7 +8,7 @@ echo '------------------------------------'
 cd ./helpers || return
 
 echo ''
-echo 'Пакет "Default"'
+echo 'Пакет "Utils"'
 echo '------------------------------------'
 cd ./utils && npx yarn build
 
@@ -42,6 +42,6 @@ echo '------------------------------------'
 cd ../../libraries || return 0
 
 echo '------------------------------------'
-echo 'Пакет "app"'
+echo 'Пакет "App"'
 echo '------------------------------------'
 cd ./app && npx yarn build || return 0
