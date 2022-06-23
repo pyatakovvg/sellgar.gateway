@@ -15,6 +15,7 @@ class GetProductsController extends Controller {
       url: process.env['PRODUCT_API_SRV'] + '/products',
       params: {
         externalId: externalId,
+        isUse: true,
       }
     });
 

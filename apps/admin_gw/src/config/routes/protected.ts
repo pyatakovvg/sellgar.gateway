@@ -7,6 +7,7 @@ export default [
   import('../../api/v1/product/getAll'),
   import('../../api/v1/product/update'),
   import('../../api/v1/product/template'),
+  import('../../api/v1/product/update-only'),
 
   import('../../api/v1/image/get'),
   import('../../api/v1/image/getAll'),

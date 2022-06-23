@@ -12,11 +12,13 @@ class GetProductsController extends Controller {
       url: process.env['PRODUCT_API_SRV'] + '/products',
       params: {
         ...query,
+        isUse: true,
       }
     });
 
     return new Result()
       .data(result['data'])
+      .meta(result['meta'])
       .build();
   }
 }
