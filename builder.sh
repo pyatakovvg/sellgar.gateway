@@ -7,7 +7,7 @@ echo '------------------------------------'
 
 cd ./helpers || return
 
-echo ''
+echo '------------------------------------'
 echo 'Пакет "Utils"'
 echo '------------------------------------'
 cd ./utils && npx yarn build
@@ -35,8 +35,16 @@ echo '------------------------------------'
 cd ../request && npx yarn build || return 0
 
 
+cd ../../plugins || return 0
+
 echo '------------------------------------'
-echo '|        Сборка libraries            |'
+echo 'Пакет "rabbit"'
+echo '------------------------------------'
+cd ./rabbit && npx yarn build || return 0
+
+
+echo '------------------------------------'
+echo '|        Сборка libraries          |'
 echo '------------------------------------'
 
 cd ../../libraries || return 0

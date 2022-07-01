@@ -3,16 +3,18 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('get', '/api/v1/categories')
-class GetCategoriesController extends Controller {
+@Route('get', '/api/v1/checkouts/:uuid')
+class GetCheckoutController extends Controller {
   async send() {
+    const params = super.params;
     const query = super.query;
 
     const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/categories',
+      url: process.env['CHECKOUT_API_SRV'] + '/checkouts/' + params['uuid'],
+      method: 'get',
       params: {
         ...query,
-      },
+      }
     });
 
     return new Result()
@@ -21,4 +23,4 @@ class GetCategoriesController extends Controller {
   }
 }
 
-export default GetCategoriesController;
+export default GetCheckoutController;

@@ -17,6 +17,7 @@
   "workspaces": [
     "apps/*",
     "helpers/*",
+    "plugins/*",
     "packages/*",
     "libraries/*"
   ]
