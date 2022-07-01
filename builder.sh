@@ -35,14 +35,6 @@ echo '------------------------------------'
 cd ../request && npx yarn build || return 0
 
 
-cd ../../plugins || return 0
-
-echo '------------------------------------'
-echo 'Пакет "rabbit"'
-echo '------------------------------------'
-cd ./rabbit && npx yarn build || return 0
-
-
 echo '------------------------------------'
 echo '|        Сборка libraries          |'
 echo '------------------------------------'
@@ -53,3 +45,11 @@ echo '------------------------------------'
 echo 'Пакет "App"'
 echo '------------------------------------'
 cd ./app && npx yarn build || return 0
+
+
+cd ../../plugins || return 0
+
+echo '------------------------------------'
+echo 'Пакет "rabbit"'
+echo '------------------------------------'
+cd ./rabbit && npx yarn build || return 0
