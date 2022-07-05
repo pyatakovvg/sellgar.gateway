@@ -1,8 +1,9 @@
 
 export default function(data) {
-  console.log(data)
   return {
-    attributeUuid: data['ProductAttribute']['attributeUuid'],
+    name: data['name'],
+    description: data['description'],
     value: data['ProductAttribute']['value'],
+    unit: data?.['unit']?.['name'] ?? null,
   };
 }
