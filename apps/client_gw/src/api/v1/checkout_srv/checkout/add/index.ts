@@ -1,22 +1,24 @@
 
+import { UUID } from '@helper/utils';
 import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('get', '/api/v1/checkouts')
-class GetCheckoutController extends Controller {
+@Route('post', '/api/v1/checkouts')
+class AddToCheckoutController extends Controller {
   async send() {
+    const body = super.body;
     let bucketUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
 
     if ( ! bucketUuid) {
-      return new Result()
-        .data(null)
-        .build();
+      bucketUuid = UUID();
+      super.cookie.set(process.env['COOKIE_BUCKET_NAME'], bucketUuid);
     }
 
     const result = await request({
       url: process.env['CHECKOUT_API_SRV'] + '/checkouts/' + bucketUuid,
-      method: 'get',
+      method: 'post',
+      data: body,
     });
 
     return new Result()
@@ -25,4 +27,4 @@ class GetCheckoutController extends Controller {
   }
 }
 
-export default GetCheckoutController;
+export default AddToCheckoutController;
