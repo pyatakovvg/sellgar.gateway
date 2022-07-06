@@ -12,7 +12,6 @@ class AddToCheckoutController extends Controller {
 
     if ( ! bucketUuid) {
       bucketUuid = UUID();
-      console.log(bucketUuid)
       super.cookie.set(process.env['COOKIE_BUCKET_NAME'], bucketUuid);
     }
 
