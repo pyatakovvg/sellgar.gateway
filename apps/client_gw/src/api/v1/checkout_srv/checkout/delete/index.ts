@@ -3,8 +3,8 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('get', '/api/v1/checkouts')
-class GetCheckoutController extends Controller {
+@Route('delete', '/api/v1/checkouts')
+class DeleteCheckoutController extends Controller {
   async send() {
     let bucketUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
 
@@ -13,15 +13,16 @@ class GetCheckoutController extends Controller {
         .data(null)
         .build();
     }
-    const result = await request({
+
+    await request({
       url: process.env['CHECKOUT_API_SRV'] + '/checkouts/' + bucketUuid,
-      method: 'get',
+      method: 'delete',
     });
 
     return new Result()
-      .data(result['data'])
+      .data(null)
       .build();
   }
 }
 
-export default GetCheckoutController;
+export default DeleteCheckoutController;
