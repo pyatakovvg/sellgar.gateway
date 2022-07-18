@@ -15,6 +15,9 @@ class GetGroupsController extends Controller {
 
     return new Result()
       .data(result['data'])
+      .meta({
+        totalRows: 0,
+      })
       .build();
   }
 }
