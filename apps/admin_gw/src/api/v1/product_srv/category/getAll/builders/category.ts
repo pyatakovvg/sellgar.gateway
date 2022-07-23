@@ -5,6 +5,6 @@ export default function(data: any) {
     name: data['name'],
     code: data['code'],
     description: data['description'],
-    group: data['groups']?.[0] ?? null,
+    group: data?.['group'] ?? undefined,
   };
 }

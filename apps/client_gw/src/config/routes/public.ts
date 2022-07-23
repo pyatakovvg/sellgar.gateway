@@ -3,6 +3,7 @@ export default [
   import('../../api/v1/product_srv/group/getAll'),
   import('../../api/v1/product_srv/category/getAll'),
 
+  import('../../api/v1/product_srv/product/getBrands'),
   import('../../api/v1/product_srv/product/get'),
   import('../../api/v1/product_srv/product/getAll'),
 
