@@ -1,10 +1,9 @@
 
 export default function(data) {
-  console.log(data)
   return {
     name: data['name'],
     description: data['description'],
-    value: data['value'],
+    value: data['ProductAttribute']['value'],
     unit: data?.['unit']?.['name'] ?? null,
   };
 }

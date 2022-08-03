@@ -5,6 +5,6 @@ export default function(data: any) {
     name: data['name'],
     code: data['code'],
     description: data['description'],
-    groupUuid: data['groups']?.[0]?.['uuid'] ?? null,
+    groupUuid: data['group']?.['uuid'] ?? null,
   };
 }
