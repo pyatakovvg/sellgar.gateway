@@ -29,6 +29,7 @@ class GetProductsController extends Controller {
     const result = await request({
       url: process.env['PRODUCT_API_SRV'] + '/products',
       params: {
+        ...query,
         ...params,
         isUse: true,
       }
