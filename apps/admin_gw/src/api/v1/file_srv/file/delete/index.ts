@@ -3,16 +3,14 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('get', '/api/v1/images')
+@Route('delete', '/api/v1/images/:uuid')
 class CurrentUserController extends Controller {
   async send() {
-    const query = super.query;
+    const params = super.params;
 
     const result = await request({
-      url: process.env['FILE_API_SRV'] + '/images',
-      params: {
-        ...query,
-      },
+      method: 'delete',
+      url: process.env['FILE_API_SRV'] + '/images/' + params['uuid'],
     });
 
     return new Result()

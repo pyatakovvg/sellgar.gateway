@@ -3,16 +3,13 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('get', '/api/v1/images')
+@Route('get', '/api/v1/folders/:uuid')
 class CurrentUserController extends Controller {
   async send() {
-    const query = super.query;
+    const params = super.params;
 
     const result = await request({
-      url: process.env['FILE_API_SRV'] + '/images',
-      params: {
-        ...query,
-      },
+      url: process.env['FILE_API_SRV'] + '/folders/' + params['uuid'],
     });
 
     return new Result()

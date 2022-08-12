@@ -14,6 +14,8 @@ export default [
   import('../../api/v1/file_srv/image/create'),
   import('../../api/v1/file_srv/image/delete'),
 
+  import('../../api/v1/file_srv/file/getAll'),
+
   import('../../api/v1/product_srv/currency/getAll'),
 
   import('../../api/v1/product_srv/unit/getAll'),
