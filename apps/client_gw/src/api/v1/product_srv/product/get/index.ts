@@ -23,18 +23,8 @@ class GetProductsController extends Controller {
       throw new NotFoundError({ code: '10.7.8', message: `Товар "${externalId}" не найден` });
     }
 
-    const comments = await request({
-      url: process.env['COMMENT_API_SRV'] + '/comments',
-      params: {
-        productUuid: result['data'][0]['uuid'],
-      }
-    });
-
     return new Result()
-      .data({
-        product: productBuilder(result['data'][0]),
-        comments: { data: comments['data'], meta: comments['meta'] },
-      })
+      .data(productBuilder(result['data'][0]))
       .build();
   }
 }
