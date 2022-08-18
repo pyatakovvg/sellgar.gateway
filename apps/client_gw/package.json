@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "@library/app": "0.0.1",
-    "ts-node": "10.8.0"
+    "ts-node": "10.9.1"
   }
 }

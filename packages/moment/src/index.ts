@@ -17,9 +17,11 @@ moment.updateLocale('ru', {
 });
 
 moment.locale('ru');
+moment.suppressDeprecationWarnings = true;
 
 momentTZ.tz.setDefault('Europe/Moscow');
-momentTZ.updateLocale('ru', moment.localeData()._config);
+// momentTZ.updateLocale('ru', moment.localeData()._config);
+
 
 
 export default momentTZ;
