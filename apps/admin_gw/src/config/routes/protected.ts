@@ -14,7 +14,7 @@ export default [
   import('../../api/v1/file_srv/image/create'),
   import('../../api/v1/file_srv/image/delete'),
 
-  import('../../api/v1/file_srv/file/getAll'),
+  import('../../api/v1/file_srv/folder/getAll'),
 
   import('../../api/v1/product_srv/currency/getAll'),
 
@@ -42,5 +42,5 @@ export default [
   import('../../api/v1/checkout_srv/order/get'),
   import('../../api/v1/checkout_srv/order/getAll'),
 
-  import('../../api/v1/comment_srv/comment/getAll'),
+  import('../../api/v1/product_srv/comment/getAll'),
 ];

@@ -9,6 +9,10 @@ class GetProductsController extends Controller {
     const params = {};
     const query = super.query;
 
+    if ('sort' in query) {
+      params['sort'] = query['sort'];
+    }
+
     if ('brandCode' in query) {
       params['brandCode'] = (query['brandCode'] instanceof Array) ? query['brandCode'] : [query['brandCode']];
     }
