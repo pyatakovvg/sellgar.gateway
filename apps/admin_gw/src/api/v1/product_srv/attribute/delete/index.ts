@@ -3,15 +3,26 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('put', '/api/v1/attributes')
+@Route('delete', '/api/v1/attributes')
 class UpdateAttributeController extends Controller {
   async send() {
-    const body = super.body;
+    const query = super.query;
+
+    await request({
+      method: 'delete',
+      url: process.env['PRODUCT_API_SRV'] + '/attributes',
+      params: {
+        uuid: query['uuid'],
+      },
+    });
 
     const result = await request({
-      method: 'put',
       url: process.env['PRODUCT_API_SRV'] + '/attributes',
-      data: body,
+      params: {
+        unitUuid: query['unitUuid'],
+        categoryUuid: query['categoryUuid'],
+        include: ['category'],
+      },
     });
 
     return new Result()

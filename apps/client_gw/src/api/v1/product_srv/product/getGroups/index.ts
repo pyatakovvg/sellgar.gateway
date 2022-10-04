@@ -1,13 +1,10 @@
 
 import request from '@package/request';
-// import { NotFoundError } from '@package/errors';
 import { Controller, Route, Result } from '@library/app';
-
-// import productBuilder from './builder/product';
 
 
 @Route('get', '/api/v1/products/groups')
-class GetProductsController extends Controller {
+class GetProductGroupController extends Controller {
   async send() {
     const query = super.query;
 
@@ -24,4 +21,4 @@ class GetProductsController extends Controller {
   }
 }
 
-export default GetProductsController;
+export default GetProductGroupController;

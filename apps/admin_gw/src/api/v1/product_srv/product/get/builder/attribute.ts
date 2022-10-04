@@ -1,8 +1,9 @@
 
-export default function(data) {
+export default function(data: any) {
   return {
-    attributeUuid: data['uuid'],
+    uuid: data['uuid'],
     value: data['value'],
-    unit: data['unit'],
+    attributeUuid: data['attribute']['uuid'],
+    unit: data['attribute']['unit'],
   };
 }

@@ -5,16 +5,21 @@ import { Controller, Route, Result } from '@library/app';
 import brandBuilder from './builders/brand';
 
 
-@Route('get', '/api/v1/brands')
-class GetBrandController extends Controller {
+@Route('delete', '/api/v1/brands')
+class DeleteBrandController extends Controller {
   async send() {
     const query = super.query;
 
+    await request({
+      url: process.env['PRODUCT_API_SRV'] + '/brands',
+      method: 'delete',
+      params: {
+        uuid: query['uuid'],
+      },
+    });
+
     const result = await request({
       url: process.env['PRODUCT_API_SRV'] + '/brands',
-      params: {
-        ...query,
-      },
     });
 
     return new Result()
@@ -24,4 +29,4 @@ class GetBrandController extends Controller {
   }
 }
 
-export default GetBrandController;
+export default DeleteBrandController;

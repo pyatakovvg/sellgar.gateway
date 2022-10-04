@@ -5,15 +5,23 @@ import { Controller, Route, Result } from '@library/app';
 import categoryBuilder from './builders/category';
 
 
-@Route('get', '/api/v1/categories')
-class GetCategoriesController extends Controller {
+@Route('delete', '/api/v1/categories')
+class DeleteCategoryController extends Controller {
   async send() {
     const query = super.query;
+
+    await request({
+      url: process.env['PRODUCT_API_SRV'] + '/categories',
+      method: 'delete',
+      params: {
+        uuid: query['uuid'],
+      },
+    });
 
     const result = await request({
       url: process.env['PRODUCT_API_SRV'] + '/categories',
       params: {
-        ...query,
+        groupUuid: query['groupUuid'],
         include: ['group'],
       },
     });
@@ -25,4 +33,4 @@ class GetCategoriesController extends Controller {
   }
 }
 
-export default GetCategoriesController;
+export default DeleteCategoryController;

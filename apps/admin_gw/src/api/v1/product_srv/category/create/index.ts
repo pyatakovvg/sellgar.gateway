@@ -9,15 +9,25 @@ import categoryBuilder from './builders/category';
 class CreateCategoryController extends Controller {
   async send() {
     const body = super.body;
+    const query = super.query;
 
-    const result = await request({
-      method: 'post',
+    await request({
       url: process.env['PRODUCT_API_SRV'] + '/categories',
+      method: 'post',
       data: body,
     });
 
+    const result = await request({
+      url: process.env['PRODUCT_API_SRV'] + '/categories',
+      params: {
+        ...query,
+        include: ['group'],
+      },
+    });
+
     return new Result()
-      .data(categoryBuilder(result['data']))
+      .data(result['data'].map(categoryBuilder))
+      .meta(result['meta'])
       .build();
   }
 }

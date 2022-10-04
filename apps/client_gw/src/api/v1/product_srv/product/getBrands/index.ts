@@ -4,7 +4,7 @@ import { Controller, Route, Result } from '@library/app';
 
 
 @Route('get', '/api/v1/products/brands')
-class GetProductsController extends Controller {
+class GetProductBrandController extends Controller {
   async send() {
     const params = super.query;
 
@@ -19,4 +19,4 @@ class GetProductsController extends Controller {
   }
 }
 
-export default GetProductsController;
+export default GetProductBrandController;

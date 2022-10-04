@@ -2,20 +2,27 @@
 import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
+import groupBuilder from './builders/group';
+
 
 @Route('post', '/api/v1/groups')
 class CreateGroupController extends Controller {
   async send() {
     const body = super.body;
 
-    const result = await request({
+    await request({
       method: 'post',
       url: process.env['PRODUCT_API_SRV'] + '/groups',
       data: body,
     });
 
+    const result = await request({
+      url: process.env['PRODUCT_API_SRV'] + '/groups',
+    });
+
     return new Result()
-      .data(result['data'])
+      .data(result['data'].map(groupBuilder))
+      .meta(result['meta'])
       .build();
   }
 }

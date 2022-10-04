@@ -3,13 +3,16 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('post', '/api/v1/products/template')
+@Route('post', '/api/v1/products/create')
 class GetProductsController extends Controller {
   async send() {
+    const body = super.body;
     const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/products/template',
+      url: process.env['PRODUCT_API_SRV'] + '/products/create',
       method: 'post',
-      data: {},
+      data: {
+        ...body,
+      },
     });
 
     return new Result()

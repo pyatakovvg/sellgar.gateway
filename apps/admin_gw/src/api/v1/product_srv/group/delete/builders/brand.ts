@@ -6,6 +6,5 @@ export default function(data) {
     name: data['name'],
     description: data['description'],
     image: data['images']?.[0] ? data['images']?.[0] : null,
-    group: data['group'] ? data['group'] : null,
   };
 }

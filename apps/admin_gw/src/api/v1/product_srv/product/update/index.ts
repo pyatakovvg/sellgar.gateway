@@ -10,15 +10,25 @@ class UpdateProductController extends Controller {
   async send() {
     const { uuid } = super.params;
     const data = super.body;
+    const query = super.query;
 
-    const result = await request({
+    await request({
       url: process.env['PRODUCT_API_SRV'] + '/products/' + uuid,
       method: 'put',
       data,
     });
 
+    const result = await request({
+      url: process.env['PRODUCT_API_SRV'] + '/products',
+      method: 'get',
+      params: {
+        uuid,
+        ...query,
+      }
+    })
+
     return new Result()
-      .data(productBuilder(result['data']))
+      .data(productBuilder(result['data'][0]))
       .build();
   }
 }

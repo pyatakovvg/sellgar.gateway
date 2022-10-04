@@ -3,8 +3,6 @@ import request from '@package/request';
 import { NotFoundError } from '@package/errors';
 import { Controller, Route, Result } from '@library/app';
 
-import productBuilder from './builder/product';
-
 
 @Route('get', '/api/v1/products/:externalId')
 class GetProductsController extends Controller {
@@ -24,7 +22,7 @@ class GetProductsController extends Controller {
     }
 
     return new Result()
-      .data(productBuilder(result['data'][0]))
+      .data(result['data'][0])
       .build();
   }
 }

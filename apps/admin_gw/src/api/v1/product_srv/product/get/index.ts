@@ -10,11 +10,13 @@ import productBuilder from './builder/product';
 class GetProductsController extends Controller {
   async send() {
     const { uuid } = super.params;
+    const query = super.query;
 
     const result = await request({
       url: process.env['PRODUCT_API_SRV'] + '/products',
       params: {
         uuid,
+        ...query,
       }
     });
 

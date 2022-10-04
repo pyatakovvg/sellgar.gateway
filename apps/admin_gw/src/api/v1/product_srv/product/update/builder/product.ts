@@ -1,23 +1,24 @@
 
-import modeBuilder from './mode';
-import attributeBuilder from './attribute';
+import groupBuilder from './group';
 
 
 export default function(data) {
   return {
-    externalId: data['externalId'],
     uuid: data['uuid'],
+    externalId: data['externalId'],
+    title: data['title'],
+    description: data['description'],
     isUse: data['isUse'],
     isAvailable: data['isAvailable'],
-    title: data['title'],
     originalName: data['originalName'],
-    groupCode: data?.['group']?.['code'] ?? null,
-    categoryCode: data?.['category']?.['code'] ?? null,
-    brandCode: data?.['brand']?.['code'] ?? null,
-    description: data['description'],
-    gallery: data['gallery'],
-    modes: data['modes'].map((data) => modeBuilder(data)),
-    attributes: data['attributes'].map((data) => attributeBuilder(data)),
+    groupUuid: data?.['group']?.['uuid'] ?? null,
+    categoryUuid: data?.['category']?.['uuid'] ?? null,
+    brandUuid: data?.['brand']?.['uuid'] ?? null,
+    price: data['price'],
+    currencyCode: data?.['currency']?.['code'] ?? null,
+    images: data['images'],
+    attributes: data['attributes'].map(groupBuilder),
     updatedAt: data['updatedAt'],
+    createdAt: data['createdAt'],
   };
 }
