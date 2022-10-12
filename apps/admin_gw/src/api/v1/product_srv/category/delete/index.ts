@@ -2,8 +2,6 @@
 import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
-import categoryBuilder from './builders/category';
-
 
 @Route('delete', '/api/v1/categories')
 class DeleteCategoryController extends Controller {
@@ -27,7 +25,7 @@ class DeleteCategoryController extends Controller {
     });
 
     return new Result()
-      .data(result['data'].map(categoryBuilder))
+      .data(result['data'])
       .meta(result['meta'])
       .build();
   }

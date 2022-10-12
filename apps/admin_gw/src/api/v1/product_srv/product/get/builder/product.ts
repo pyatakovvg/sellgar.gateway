@@ -1,12 +1,13 @@
 
-import groupBuilder from './group';
+import attributeGroupBuilder from './attributeGroup';
 
 
 export default function(data) {
-  console.log(data['images'])
   return {
     uuid: data['uuid'],
     externalId: data['externalId'],
+    vendor: data['vendor'],
+    barcode: data['barcode'],
     title: data['title'],
     description: data['description'],
     isUse: data['isUse'],
@@ -16,9 +17,10 @@ export default function(data) {
     categoryUuid: data?.['category']?.['uuid'] ?? null,
     brandUuid: data?.['brand']?.['uuid'] ?? null,
     price: data['price'],
+    purchasePrice: data['purchasePrice'],
     currencyCode: data?.['currency']?.['code'] ?? null,
     images: data['images'],
-    attributes: data['attributes'].map(groupBuilder),
+    attributes: data['attributes'].map(attributeGroupBuilder),
     updatedAt: data['updatedAt'],
     createdAt: data['createdAt'],
   };

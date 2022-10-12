@@ -3,24 +3,19 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('post', '/api/v1/categories')
-class CreateCategoryController extends Controller {
+@Route('post', '/api/v1/units')
+class CreateUnitController extends Controller {
   async send() {
     const body = super.body;
-    const query = super.query;
 
     await request({
-      url: process.env['PRODUCT_API_SRV'] + '/categories',
+      url: process.env['PRODUCT_API_SRV'] + '/units',
       method: 'post',
       data: body,
     });
 
     const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/categories',
-      params: {
-        ...query,
-        include: ['group'],
-      },
+      url: process.env['PRODUCT_API_SRV'] + '/units',
     });
 
     return new Result()
@@ -30,4 +25,4 @@ class CreateCategoryController extends Controller {
   }
 }
 
-export default CreateCategoryController;
+export default CreateUnitController;

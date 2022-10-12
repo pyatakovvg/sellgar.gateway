@@ -6,10 +6,10 @@ import checkoutBuilder from './builders/checkout';
 
 
 @Route('get', '/api/v1/checkouts')
-class GetOrdersController extends Controller {
+class GetBucketController extends Controller {
   async send() {
     const result = await request({
-      url: process.env['CHECKOUT_API_SRV'] + '/checkouts',
+      url: process.env['CHECKOUT_API_SRV'] + '/buckets',
     });
 
     return new Result()
@@ -19,4 +19,4 @@ class GetOrdersController extends Controller {
   }
 }
 
-export default GetOrdersController;
+export default GetBucketController;

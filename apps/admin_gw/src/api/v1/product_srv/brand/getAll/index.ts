@@ -2,8 +2,6 @@
 import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
-import brandBuilder from './builders/brand';
-
 
 @Route('get', '/api/v1/brands')
 class GetBrandController extends Controller {
@@ -18,7 +16,7 @@ class GetBrandController extends Controller {
     });
 
     return new Result()
-      .data(result['data'].map(brandBuilder))
+      .data(result['data'])
       .meta(result['meta'])
       .build();
   }

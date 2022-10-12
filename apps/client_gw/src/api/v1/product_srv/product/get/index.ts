@@ -16,7 +16,7 @@ class GetProductsController extends Controller {
         isUse: true,
       }
     });
-
+console.log(result['data'][0])
     if ( ! result['data'].length) {
       throw new NotFoundError({ code: '10.7.8', message: `Товар "${externalId}" не найден` });
     }

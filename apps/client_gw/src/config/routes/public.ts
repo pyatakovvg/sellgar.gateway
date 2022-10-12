@@ -17,6 +17,11 @@ export default [
   import('../../api/v1/product_srv/comment/create'),
   import('../../api/v1/product_srv/comment/getAll'),
 
+  import('../../api/v1/checkout_srv/bucket/get'),
+  import('../../api/v1/checkout_srv/bucket/update'),
+  import('../../api/v1/checkout_srv/bucket/create'),
+  import('../../api/v1/checkout_srv/bucket/delete'),
+
   import('../../api/v1/checkout_srv/checkout/get'),
   import('../../api/v1/checkout_srv/checkout/add'),
   import('../../api/v1/checkout_srv/checkout/delete'),

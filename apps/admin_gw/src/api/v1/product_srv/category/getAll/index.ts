@@ -2,8 +2,6 @@
 import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
-import categoryBuilder from './builders/category';
-
 
 @Route('get', '/api/v1/categories')
 class GetCategoriesController extends Controller {
@@ -19,7 +17,7 @@ class GetCategoriesController extends Controller {
     });
 
     return new Result()
-      .data(result['data'].map(categoryBuilder))
+      .data(result['data'])
       .meta(result['meta'])
       .build();
   }

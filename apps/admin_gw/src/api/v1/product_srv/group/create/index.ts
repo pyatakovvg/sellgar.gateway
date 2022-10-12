@@ -2,8 +2,6 @@
 import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
-import groupBuilder from './builders/group';
-
 
 @Route('post', '/api/v1/groups')
 class CreateGroupController extends Controller {
@@ -21,7 +19,7 @@ class CreateGroupController extends Controller {
     });
 
     return new Result()
-      .data(result['data'].map(groupBuilder))
+      .data(result['data'])
       .meta(result['meta'])
       .build();
   }

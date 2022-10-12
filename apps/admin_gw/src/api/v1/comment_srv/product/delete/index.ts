@@ -3,13 +3,13 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('delete', '/api/v1/groups')
-class DeleteGroupController extends Controller {
+@Route('delete', '/api/v1/units')
+class DeleteUnitController extends Controller {
   async send() {
     const query = super.query;
 
     await request({
-      url: process.env['PRODUCT_API_SRV'] + '/groups',
+      url: process.env['PRODUCT_API_SRV'] + '/units',
       method: 'delete',
       params: {
         uuid: query['uuid'],
@@ -17,7 +17,7 @@ class DeleteGroupController extends Controller {
     });
 
     const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/groups',
+      url: process.env['PRODUCT_API_SRV'] + '/units',
     });
 
     return new Result()
@@ -27,4 +27,4 @@ class DeleteGroupController extends Controller {
   }
 }
 
-export default DeleteGroupController;
+export default DeleteUnitController;

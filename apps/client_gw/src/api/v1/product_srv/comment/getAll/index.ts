@@ -3,7 +3,7 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('get', '/api/v1/products/:productUuid/comments')
+@Route('get', '/api/v1/products/:uuid/comments')
 class GetCommentsController extends Controller {
   async send() {
     const params = super.params;
@@ -15,8 +15,9 @@ class GetCommentsController extends Controller {
     }
 
     const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/comments',
+      url: process.env['COMMENT_API_SRV'] + '/products',
       params: {
+        uuid: params['uuid'],
         ...query,
         ...params,
       }
