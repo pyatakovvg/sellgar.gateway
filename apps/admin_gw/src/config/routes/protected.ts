@@ -40,6 +40,10 @@ export default [
   import('../../api/v1/checkout_srv/order/get'),
   import('../../api/v1/checkout_srv/order/getAll'),
 
+  import('../../api/v1/checkout_srv/status/getAll'),
+  import('../../api/v1/checkout_srv/delivery/getAll'),
+  import('../../api/v1/checkout_srv/payment/getAll'),
+
   import('../../api/v1/comment_srv/comment/getAll'),
   import('../../api/v1/comment_srv/product/getAll'),
 ];

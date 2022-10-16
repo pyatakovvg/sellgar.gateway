@@ -1,5 +1,5 @@
 
-import bucketProductBuilder from './checkoutProduct';
+import bucketProductBuilder from './bucketProduct';
 
 
 export default function(data: any) {
@@ -12,8 +12,6 @@ export default function(data: any) {
     currency: data['currency'],
     delivery: data['delivery'],
     payment: data['payment'],
-    createdAt: data['createdAt'],
-    updatedAt: data['updatedAt'],
     products: data['products'].map(bucketProductBuilder),
   };
 }

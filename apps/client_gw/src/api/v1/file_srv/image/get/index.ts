@@ -14,7 +14,7 @@ class CurrentUserController extends Controller {
       method: 'get',
       responseType: 'stream',
       params: {
-        size: query['size'],
+        ...query,
       },
     });
 

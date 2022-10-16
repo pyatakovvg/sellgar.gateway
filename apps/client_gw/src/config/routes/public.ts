@@ -23,8 +23,8 @@ export default [
   import('../../api/v1/checkout_srv/bucket/delete'),
 
   import('../../api/v1/checkout_srv/checkout/get'),
-  import('../../api/v1/checkout_srv/checkout/add'),
-  import('../../api/v1/checkout_srv/checkout/delete'),
+  import('../../api/v1/checkout_srv/checkout/create'),
+
   import('../../api/v1/checkout_srv/delivery/getAll'),
   import('../../api/v1/checkout_srv/payment/getAll'),
 ];

@@ -7,6 +7,7 @@ export default function(data: any) {
     uuid: data['uuid'],
     externalId: data['externalId'],
     status: data['status'],
+    details: data['details'],
     count: data['count'],
     price: Number(data['price']),
     currency: data['currency'],

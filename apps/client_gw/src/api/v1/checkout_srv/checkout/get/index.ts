@@ -1,35 +1,30 @@
 
 import request from '@package/request';
+import { NotFoundError } from '@package/errors';
 import { Controller, Route, Result } from '@library/app';
 
+import checkoutBuilder from './builders/bucket';
 
-@Route('get', '/api/v1/checkouts')
+
+@Route('get', '/api/v1/checkouts/:uuid')
 class GetCheckoutController extends Controller {
   async send() {
-    let bucketUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
-
-    if ( ! bucketUuid) {
-      return new Result()
-        .data(null)
-        .build();
-    }
+    const params = super.params;
 
     const result = await request({
       url: process.env['CHECKOUT_API_SRV'] + '/checkouts',
       method: 'get',
       params: {
-        uuid: bucketUuid,
+        uuid: params['uuid'],
       }
     });
 
     if ( ! result['data']?.[0]) {
-      return new Result()
-        .data(null)
-        .build();
+      throw new NotFoundError({ code: '10.0.0', message: 'Заказ не найден' });
     }
 
     return new Result()
-      .data(result['data'][0])
+      .data(checkoutBuilder(result['data'][0]))
       .build();
   }
 }
