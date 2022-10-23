@@ -3,21 +3,21 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('post', '/api/v1/products/create')
+@Route('get', '/api/v1/store')
 class GetProductsController extends Controller {
   async send() {
-    const body = super.body;
+    const query = super.query;
 
     const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/products/create',
-      method: 'post',
-      data: {
-        ...body,
+      url: process.env['PRODUCT_API_SRV'] + '/store',
+      params: {
+        ...query,
       },
     });
 
     return new Result()
       .data(result['data'])
+      .meta(result['meta'])
       .build();
   }
 }

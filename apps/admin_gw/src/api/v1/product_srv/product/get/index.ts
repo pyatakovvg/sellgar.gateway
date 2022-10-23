@@ -3,7 +3,7 @@ import request from '@package/request';
 import { NotFoundError } from '@package/errors';
 import { Controller, Route, Result } from '@library/app';
 
-import productBuilder from './builder/product';
+import catalogBuilder from "./builder/catalog";
 
 
 @Route('get', '/api/v1/products/:uuid')
@@ -25,7 +25,7 @@ class GetProductsController extends Controller {
     }
 
     return new Result()
-      .data(productBuilder(result['data'][0]))
+      .data(catalogBuilder(result['data'][0]))
       .build();
   }
 }

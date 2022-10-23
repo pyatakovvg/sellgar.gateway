@@ -3,10 +3,12 @@ export default [
   import('../../api/v1/identity_srv/user/getAll'),
   import('../../api/v1/identity_srv/user/current'),
 
+  import('../../api/v1/product_srv/store/getAll'),
+  import('../../api/v1/product_srv/store/upsert'),
+
   import('../../api/v1/product_srv/product/get'),
   import('../../api/v1/product_srv/product/getAll'),
-  import('../../api/v1/product_srv/product/update'),
-  import('../../api/v1/product_srv/product/create'),
+  import('../../api/v1/product_srv/product/upsert'),
 
   import('../../api/v1/file_srv/image/get'),
   import('../../api/v1/file_srv/image/getAll'),

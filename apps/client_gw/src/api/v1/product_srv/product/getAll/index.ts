@@ -36,6 +36,7 @@ class GetProductsController extends Controller {
         ...query,
         ...params,
         isUse: true,
+        isAvailable: true,
       }
     });
 
