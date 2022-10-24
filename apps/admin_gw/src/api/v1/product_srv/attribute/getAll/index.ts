@@ -12,7 +12,6 @@ class GetAttributeController extends Controller {
       url: process.env['PRODUCT_API_SRV'] + '/attributes',
       params: {
         ...query,
-        include: ['category'],
       },
     });
 

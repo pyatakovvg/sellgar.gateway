@@ -24,7 +24,7 @@ export default [
   import('../../api/v1/product_srv/unit/delete'),
 
   import('../../api/v1/product_srv/attribute/getAll'),
-  import('../../api/v1/product_srv/attribute/create'),
+  import('../../api/v1/product_srv/attribute/upsert'),
   import('../../api/v1/product_srv/attribute/delete'),
 
   import('../../api/v1/product_srv/brand/getAll'),
