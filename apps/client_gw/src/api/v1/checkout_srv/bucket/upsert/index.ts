@@ -8,26 +8,26 @@ import { Controller, Route, Result } from '@library/app';
 class UpdateBucketController extends Controller {
   async send() {
     const body = super.body;
-    let bucketUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
+    let customerUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
 
-    if ( ! bucketUuid) {
-      bucketUuid = UUID();
-      super.cookie.set(process.env['COOKIE_BUCKET_NAME'], bucketUuid);
+    if ( ! customerUuid) {
+      customerUuid = UUID();
+      super.cookie.set(process.env['COOKIE_BUCKET_NAME'], customerUuid);
     }
 
-    await request({
+    const result = await request({
       url: process.env['CHECKOUT_API_SRV'] + '/buckets',
       method: 'post',
       data: {
-        bucketUuid,
-        uuid: body['uuid'],
+        customerUuid,
         count: body['count'],
+        bucketUuid: body['bucketUuid'],
         productUuid: body['productUuid'],
       },
     });
 
     return new Result()
-      .data(null)
+      .data(result['data'])
       .build();
   }
 }

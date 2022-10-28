@@ -14,7 +14,7 @@ class GetProductsController extends Controller {
     }
 
     if ('brandCode' in query) {
-      params['brandCode'] = (query['brandCode'] instanceof Array) ? query['brandCode'] : [query['brandCode']];
+      params['brandCode'] = query['brandCode'];
     }
 
     if ('groupCode' in query) {

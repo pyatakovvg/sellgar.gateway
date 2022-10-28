@@ -3,13 +3,13 @@ import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
 
-@Route('get', '/api/v1/units')
-class UnitController extends Controller {
+@Route('get', '/api/v1/comments/products')
+class GetCommentProductController extends Controller {
   async send() {
     const query = super.query;
 
     const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/units',
+      url: process.env['COMMENT_API_SRV'] + '/products',
       params: query,
     });
 
@@ -20,4 +20,4 @@ class UnitController extends Controller {
   }
 }
 
-export default UnitController;
+export default GetCommentProductController;

@@ -6,21 +6,26 @@ import { Controller, Route, Result } from '@library/app';
 @Route('delete', '/api/v1/bucket')
 class DeleteBucketController extends Controller {
   async send() {
-    let bucketUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
+    const query = super.query;
+    const customerUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
 
-    if ( ! bucketUuid) {
+    if ( ! customerUuid) {
       return new Result()
         .data(null)
         .build();
     }
 
-    await request({
-      url: process.env['CHECKOUT_API_SRV'] + '/buckets/' + bucketUuid,
+    const result = await request({
+      url: process.env['CHECKOUT_API_SRV'] + '/buckets',
       method: 'delete',
+      params: {
+        ...query,
+        customerUuid,
+      },
     });
 
     return new Result()
-      .data(null)
+      .data(result['data'])
       .build();
   }
 }
