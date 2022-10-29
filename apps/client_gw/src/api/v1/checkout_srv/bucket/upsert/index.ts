@@ -1,5 +1,4 @@
 
-import { UUID } from '@helper/utils';
 import request from '@package/request';
 import { Controller, Route, Result } from '@library/app';
 
@@ -11,7 +10,12 @@ class UpdateBucketController extends Controller {
     let customerUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
 
     if ( ! customerUuid) {
-      customerUuid = UUID();
+      const result = await request({
+        url: process.env['CUSTOMER_API_SRV'] + '/customers',
+        method: 'post',
+        data: {},
+      });
+      customerUuid = result['data']['uuid'];
       super.cookie.set(process.env['COOKIE_BUCKET_NAME'], customerUuid);
     }
 
