@@ -7,6 +7,7 @@ export default [
   import('../../api/v1/product_srv/store/upsert'),
 
   import('../../api/v1/product_srv/product/get'),
+  import('../../api/v1/product_srv/product/copy'),
   import('../../api/v1/product_srv/product/getAll'),
   import('../../api/v1/product_srv/product/upsert'),
 
