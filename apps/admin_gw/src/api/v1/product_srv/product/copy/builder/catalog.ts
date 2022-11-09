@@ -1,5 +1,4 @@
 
-import productBuilder from './product';
 import attributeGroupBuilder from './attributeGroup';
 
 
@@ -15,9 +14,9 @@ export default function(data) {
 
     groupUuid: data?.['group']?.['uuid'] ?? null,
     categoryUuid: data?.['category']?.['uuid'] ?? null,
+    productUuid: null,
 
     images: data['images'],
-    products: data['products'].map(productBuilder),
     attributes: data['attributes'].map(attributeGroupBuilder),
 
     updatedAt: data['updatedAt'],
