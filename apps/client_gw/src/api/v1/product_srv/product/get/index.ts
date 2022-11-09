@@ -1,6 +1,5 @@
 
 import request from '@package/request';
-import { NotFoundError } from '@package/errors';
 import { Controller, Route, Result } from '@library/app';
 
 
@@ -17,12 +16,8 @@ class GetProductsController extends Controller {
       }
     });
 
-    if ( ! result['data'].length) {
-      throw new NotFoundError({ code: '10.7.8', message: `Товар "${externalId}" не найден` });
-    }
-
     return new Result()
-      .data(result['data'][0])
+      .data(result['data']?.[0] ?? null)
       .build();
   }
 }
