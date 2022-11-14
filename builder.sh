@@ -17,53 +17,53 @@ echo '------------------------------------'
 echo '|        Сборка packages            |'
 echo '------------------------------------'
 
-cd ../../packages || return 0
+cd ../../packages || return
 
 echo '------------------------------------'
 echo 'Пакет "Errors"'
 echo '------------------------------------'
-cd ./errors && npm run build || return 0
+cd ./errors && npm run build || return
 
 echo '------------------------------------'
 echo 'Пакет "Logger"'
 echo '------------------------------------'
-cd ../logger && npm run build || return 0
+cd ../logger && npm run build || return
 
 echo '------------------------------------'
 echo 'Пакет "Numeral"'
 echo '------------------------------------'
-cd ../numeral && npm run build || return 0
+cd ../numeral && npm run build || return
 
 echo '------------------------------------'
 echo 'Пакет "Moment"'
 echo '------------------------------------'
-cd ../moment && npm run build || return 0
+cd ../moment && npm run build || return
 
 echo '------------------------------------'
 echo 'Пакет "Request"'
 echo '------------------------------------'
-cd ../request && npm run build || return 0
+cd ../request && npm run build || return
 
 
 echo '------------------------------------'
 echo '|        Сборка libraries          |'
 echo '------------------------------------'
 
-cd ../../libraries || return 0
+cd ../../libraries || return
 
 echo '------------------------------------'
 echo 'Пакет "App"'
 echo '------------------------------------'
-cd ./app && npm run build || return 0
+cd ./app && npm run build || return
 
 
 echo '------------------------------------'
 echo '|        Сборка plugins          |'
 echo '------------------------------------'
 
-cd ../../plugins || return 0
+cd ../../plugins || return
 
 echo '------------------------------------'
 echo 'Пакет "rabbit"'
 echo '------------------------------------'
-cd ./rabbit && npm run build || return 0
+cd ./rabbit && npm run build || return

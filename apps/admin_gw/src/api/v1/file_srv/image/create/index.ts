@@ -8,6 +8,7 @@ import { PassThrough } from 'stream';
 @Route('post', '/api/v1/images')
 class CurrentUserController extends Controller {
   async send() {
+    const query = super.query;
     const req = super.ctx['req'];
 
     const tunnel = new PassThrough();
@@ -21,6 +22,9 @@ class CurrentUserController extends Controller {
         'content-type': req['headers']['content-type'],
       },
       data: tunnel,
+      params: {
+        ...query,
+      }
     });
 
     return new Result()
