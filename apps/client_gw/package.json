@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "client gw",
+    "build": "echo 'client gw'",
     "start": "ts-node -r dotenv/config ./src/index.ts dotenv_config_path=./.env",
     "start:dev": "nodemon --exec ts-node -r dotenv/config ./src/index.ts dotenv_config_path=./.env.local"
   },
