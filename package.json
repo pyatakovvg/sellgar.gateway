@@ -27,7 +27,6 @@
     "packages/moment",
     "packages/request",
     "libraries/app",
-    "plugins/rabbit",
-    "apps/*"
+    "plugins/rabbit"
   ]
 }
