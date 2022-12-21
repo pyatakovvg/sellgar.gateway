@@ -19,12 +19,12 @@ class GetCheckoutController extends Controller {
       }
     });
 
-    if ( ! result['data']?.[0]) {
+    if ( ! result.data.length) {
       throw new NotFoundError({ code: '10.0.0', message: 'Заказ не найден' });
     }
 
     return new Result()
-      .data(checkoutBuilder(result['data'][0]))
+      .data(checkoutBuilder(result.data[0]))
       .build();
   }
 }

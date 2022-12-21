@@ -16,17 +16,8 @@ class DeleteCategoryController extends Controller {
       },
     });
 
-    const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/categories',
-      params: {
-        groupUuid: query['groupUuid'],
-        include: ['group'],
-      },
-    });
-
     return new Result()
-      .data(result['data'])
-      .meta(result['meta'])
+      .data(null)
       .build();
   }
 }

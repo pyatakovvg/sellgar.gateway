@@ -8,9 +8,9 @@ import { Controller, Route, Result } from '@library/app';
 class CreateCheckoutController extends Controller {
   async send() {
     const body = super.body;
-    const bucketUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
+    const customerUuid = super.cookie.get(process.env['COOKIE_BUCKET_NAME']);
 
-    if ( ! bucketUuid) {
+    if ( ! customerUuid) {
       throw new BadRequestError({ code: '22.1.111', message: 'Номер карзины не указан' });
     }
 
@@ -18,7 +18,7 @@ class CreateCheckoutController extends Controller {
       url: process.env['CHECKOUT_API_SRV'] + '/checkouts',
       method: 'post',
       data: {
-        bucketUuid,
+        customerUuid,
         ...body,
       },
     });

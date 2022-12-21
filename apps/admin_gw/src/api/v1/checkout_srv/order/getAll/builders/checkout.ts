@@ -3,6 +3,7 @@ import bucketProductBuilder from './checkoutProduct';
 
 
 export default function(data: any) {
+  console.log(data)
   return {
     uuid: data['uuid'],
     externalId: data['externalId'],

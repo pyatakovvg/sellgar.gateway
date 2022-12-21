@@ -16,17 +16,8 @@ class UpdateAttributeController extends Controller {
       },
     });
 
-    const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/attributes',
-      params: {
-        unitUuid: query['unitUuid'],
-        categoryUuid: query['categoryUuid'],
-        include: ['category'],
-      },
-    });
-
     return new Result()
-      .data(result['data'])
+      .data(null)
       .build();
   }
 }

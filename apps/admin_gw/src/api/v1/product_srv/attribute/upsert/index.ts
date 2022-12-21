@@ -7,7 +7,6 @@ import { Controller, Route, Result } from '@library/app';
 class CreateAttributeController extends Controller {
   async send() {
     const body = super.body;
-    const query = super.query;
 
     await request({
       url: process.env['PRODUCT_API_SRV'] + '/attributes',
@@ -15,17 +14,8 @@ class CreateAttributeController extends Controller {
       data: body,
     });
 
-    const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/attributes',
-      params: {
-        unitUuid: query['unitUuid'],
-        categoryUuid: query['categoryUuid'],
-        include: ['category'],
-      },
-    });
-
     return new Result()
-      .data(result['data'])
+      .data(null)
       .build();
   }
 }

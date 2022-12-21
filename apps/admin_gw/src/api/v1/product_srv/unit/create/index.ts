@@ -14,13 +14,8 @@ class CreateUnitController extends Controller {
       data: body,
     });
 
-    const result = await request({
-      url: process.env['PRODUCT_API_SRV'] + '/units',
-    });
-
     return new Result()
-      .data(result['data'])
-      .meta(result['meta'])
+      .data(null)
       .build();
   }
 }
